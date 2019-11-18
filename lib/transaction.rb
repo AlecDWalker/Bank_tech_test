@@ -5,7 +5,7 @@ class Transaction
   end
 
   def reuturn_funds
-    return @funds
+    @funds
   end
-  
+
 end
