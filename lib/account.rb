@@ -3,6 +3,7 @@ require './lib/transaction'
 require './database_connection_setup'
 require './lib/database_connection'
 require 'uri'
+require 'table_print'
 
 class Account
 
@@ -15,20 +16,17 @@ class Account
   end
 
   def deposit(amount)
-    #@transactions << amount
     @balance += amount
     Transaction.credit(amount, @balance)
   end
 
   def withdraw(amount)
-    #@transactions << (-amount)
     @balance -= amount
     Transaction.debit(amount, @balance)
   end
 
-
   def print_history
-    Transaction.all
+    tp Transaction.all
   end
 
 end

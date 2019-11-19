@@ -8,7 +8,6 @@ class Transaction
 
   def self.all
     result = DatabaseConnection.query('SELECT * FROM account_history;')
-    result.map { |t| Transaction.new(t['date'],t['credit'], t['debit'], t['balance'])}
   end
 
   def self.credit(credit, balance)

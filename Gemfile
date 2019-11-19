@@ -10,6 +10,8 @@ gem "pg"
 
 gem "shotgun"
 
+gem "table_print"
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
