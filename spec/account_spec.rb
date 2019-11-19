@@ -23,15 +23,4 @@ describe Account do
     end
   end
 
-  describe 'transaction history' do
-    it 'can record mulitple transactions' do
-      account = Account.new
-      account.deposit(100)
-      account.deposit(600)
-      account.withdraw(200)
-      expect(account.return_transactions.length). to eq 3
-      expect(account.return_balance).to eq 500
-    end
-  end
-
 end

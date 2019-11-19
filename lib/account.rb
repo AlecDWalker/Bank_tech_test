@@ -7,30 +7,25 @@ require 'uri'
 class Account
 
   def initialize
-    @transactions = []
-  end
-
-  def return_transactions
-    @transactions
+    @balance = 0
   end
 
   def return_balance
-    sum = 0
-    @transactions.each{ |t|
-    sum += t  }
-    return sum
+    @balance
   end
 
-
   def deposit(amount)
-    @transactions << amount
-    Transaction.credit(amount)
+    #@transactions << amount
+    @balance += amount
+    Transaction.credit(amount, @balance)
   end
 
   def withdraw(amount)
-    @transactions << (-amount)
-    Transaction.debit(amount)
+    #@transactions << (-amount)
+    @balance -= amount
+    Transaction.debit(amount, @balance)
   end
+
 
   def print_history
     Transaction.all
