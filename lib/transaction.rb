@@ -7,7 +7,7 @@ class Transaction
   end
 
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM account_history;')
+    result = DatabaseConnection.query('SELECT * FROM account_history ORDER BY date DESC;')
   end
 
   def self.credit(credit, balance)
