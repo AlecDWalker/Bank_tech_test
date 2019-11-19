@@ -1,4 +1,8 @@
 require 'pg'
+require './lib/transaction'
+require './database_connection_setup'
+require './lib/database_connection'
+require 'uri'
 
 class Account
 
@@ -17,11 +21,19 @@ class Account
     return sum
   end
 
+
   def deposit(amount)
     @transactions << amount
+    Transaction.credit(amount)
   end
 
-  def withdrawl(amount)
+  def withdraw(amount)
     @transactions << (-amount)
+    Transaction.debit(amount)
   end
+
+  def print_history
+    Transaction.all
+  end
+
 end

@@ -18,7 +18,7 @@ describe Account do
   describe 'withdrawl' do
     it 'can decrease the balance' do
       account = Account.new
-      account.withdrawl(100)
+      account.withdraw(100)
         expect(account.return_balance).to eq -100
     end
   end
@@ -28,7 +28,7 @@ describe Account do
       account = Account.new
       account.deposit(100)
       account.deposit(600)
-      account.withdrawl(200)
+      account.withdraw(200)
       expect(account.return_transactions.length). to eq 3
       expect(account.return_balance).to eq 500
     end
