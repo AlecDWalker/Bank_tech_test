@@ -1,7 +1,6 @@
+# frozen_string_literal: true
+
 require './lib/database_connection'
 
-if ENV['ENVIRONMENT'] == 'test'
-  return DatabaseConnection.setup('bank_test')
-else
-  return DatabaseConnection.setup('bank')
-end
+return DatabaseConnection.setup('bank_test') if ENV['ENVIRONMENT'] == 'test'
+return DatabaseConnection.setup('bank') if ENV['ENVIRONMENT'] != 'test'
